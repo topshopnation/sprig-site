@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Sprig Finance</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #1E7A50;
+      --green-dark: #155C3A;
+      --cream: #F7F2EB;
+      --text: #1A1A1A;
+      --muted: #6B6B6B;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    header {
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      background: var(--cream);
+    }
+    .logo-text {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--green-dark);
+      letter-spacing: -0.3px;
+      text-decoration: none;
+    }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 0.5rem;
+    }
+    .updated {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin: 2rem 0 0.6rem;
+    }
+    p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #333;
+      margin-bottom: 0.75rem;
+    }
+    ul {
+      padding-left: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+    li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #333;
+      margin-bottom: 0.25rem;
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo-text" href="/">Sprig Finance</a>
+  </header>
+
+  <main>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Effective date: June 24, 2026 &nbsp;·&nbsp; Last updated: June 24, 2026</p>
+
+    <p>Sprig Finance ("Sprig," "we," "us," or "our") is a personal finance application operated by CoreForge LLC. This Privacy Policy explains what information we collect, how we use it, and the deliberate choices we have made to hold as little of your financial data as possible. It applies to the Sprig Finance iOS app and our website at heysprig.com.</p>
+
+    <h2>1. Our core privacy principle: we do not store your transactions</h2>
+    <p>Sprig is built so that your transaction history and account balances are never stored on our servers. When you open the app, your transactions and balances are retrieved from your financial institution through Plaid, displayed to you in the app, and not retained in our database. The only financial item we keep is an encrypted connection token (described in Section 4) that lets us retrieve that data on your behalf when you ask for it.</p>
+
+    <h2>2. Information We Collect</h2>
+    <ul>
+      <li><strong>Account information:</strong> Your email address (and Apple-provided identifier) when you create a Sprig account using Sign in with Apple.</li>
+      <li><strong>Bank connection tokens:</strong> When you link a financial institution, Plaid provides us with an access token that represents that connection. We store this token in encrypted form. We never receive or store your bank username or password.</li>
+      <li><strong>Connection metadata:</strong> The name of each linked institution, the last few digits of linked accounts, and the connection's status (active, needs reconnection, etc.), so the app can show you which accounts are connected.</li>
+      <li><strong>Transaction and balance data:</strong> Retrieved from your institution through Plaid and shown to you on demand. This data is not stored on our servers.</li>
+      <li><strong>Data you enter on your device:</strong> Manual transactions, memos, and category corrections you create are stored locally on your device, not on our servers.</li>
+      <li><strong>Subscription status:</strong> Whether your trial or paid subscription is active, provided by Apple through RevenueCat. We do not receive your payment card details.</li>
+    </ul>
+
+    <h2>3. How We Use Your Information</h2>
+    <ul>
+      <li>Retrieve and display your transactions, balances, and running balance register</li>
+      <li>Categorize transactions using the category information Plaid returns</li>
+      <li>Show you which institutions are connected and prompt you to reconnect when a bank requires it</li>
+      <li>Manage your free trial and subscription</li>
+      <li>Send service messages you have opted into (for example, a reminder before your trial ends)</li>
+    </ul>
+    <p>We do not sell, rent, or share your personal or financial data with any third party for advertising or marketing purposes.</p>
+
+    <h2>4. Plaid and Financial Data</h2>
+    <p>Sprig uses <a href="https://plaid.com" target="_blank" rel="noopener">Plaid Technologies, Inc.</a> to connect to your financial institutions. When you link an account, your bank credentials are entered directly with your bank through Plaid's secure interface. Sprig never sees or stores your banking username or password.</p>
+    <p>We use Plaid to gather data from your financial accounts. By connecting a bank account in Sprig, you also agree to Plaid's End User Privacy Policy, available at <a href="https://plaid.com/legal/end-user-privacy-policy" target="_blank" rel="noopener">plaid.com/legal/end-user-privacy-policy</a>. Plaid's collection and use of your data is governed by Plaid's privacy policies at <a href="https://plaid.com/legal" target="_blank" rel="noopener">plaid.com/legal</a>.</p>
+
+    <h2>5. Apple Card, Apple Cash, and Apple Savings</h2>
+    <p>If you choose to add Apple Card, Apple Cash, or Apple Savings, that data is provided by Apple's FinanceKit framework and stays on your device. It is not transmitted to or stored on our servers.</p>
+
+    <h2>6. Data Storage and Security</h2>
+    <p>The limited data we do store (your account identifier, your encrypted bank connection tokens, and connection metadata) is held in encrypted databases hosted on Supabase infrastructure in the United States, with encryption at rest and TLS in transit. Bank connection tokens are additionally encrypted by our application before storage. We enforce access controls so that this data is reachable only by the authorized backend service that retrieves your transactions on your behalf.</p>
+    <p>We maintain a written information security program in accordance with the FTC Safeguards Rule. We designate Kevin Colon as the Qualified Individual responsible for that program. For any security concern, contact <a href="mailto:privacy@heysprig.com">privacy@heysprig.com</a>.</p>
+
+    <h2>7. Data Retention and Deletion</h2>
+    <p>You may delete your Sprig account at any time from within the app, without contacting support. When you delete your account, we disconnect each linked institution through Plaid, delete your encrypted connection tokens and connection metadata, cancel your subscription record, and remove your account from our systems. Transaction and balance data was never stored, and locally stored data is removed when you delete the app from your device.</p>
+
+    <h2>8. Third-Party Services</h2>
+    <p>Sprig relies on the following service providers to operate:</p>
+    <ul>
+      <li><strong>Plaid Technologies, Inc.</strong> — secure connection to your financial institutions</li>
+      <li><strong>Supabase, Inc.</strong> — authentication and encrypted storage of account identifiers and connection tokens</li>
+      <li><strong>Cloudflare, Inc.</strong> — backend processing that retrieves your data from Plaid on demand</li>
+      <li><strong>RevenueCat, Inc.</strong> — subscription status management (no payment card data)</li>
+      <li><strong>Resend, Inc.</strong> — delivery of service emails you have opted into</li>
+    </ul>
+    <p>Each provider is bound by its own privacy policy and data processing terms. We do not sell your data to any of them.</p>
+
+    <h2>9. Children's Privacy</h2>
+    <p>Sprig is not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, contact us and we will delete it promptly.</p>
+
+    <h2>10. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of material changes by email or an in-app notice. Your continued use of Sprig after changes are posted constitutes acceptance of the updated policy.</p>
+
+    <h2>11. Contact Us</h2>
+    <p>If you have questions about this Privacy Policy or your personal data, contact us:</p>
+    <p>
+      CoreForge LLC<br>
+      30 N Gould St #N<br>
+      Sheridan, WY 82801<br>
+      <a href="mailto:privacy@heysprig.com">privacy@heysprig.com</a>
+    </p>
+  </main>
+
+  <footer>© 2026 CoreForge LLC · <a href="/">heysprig.com</a></footer>
+</body>
+</html>
