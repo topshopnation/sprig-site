@@ -172,7 +172,6 @@
   <footer>
     <a href="/privacy">Privacy Policy</a>
     <a href="/terms">Terms of Service</a>
-    <a href="mailto:support@heysprig.com">Contact</a>
     <span>© 2026 CoreForge LLC</span>
   </footer>
 
@@ -185,8 +184,9 @@
       const email = document.getElementById('email-input').value.trim();
       const hint = document.getElementById('hint-text');
       if (!WORKER_URL) {
-        window.location.href = "mailto:support@heysprig.com?subject=Notify%20me%20when%20Sprig%20launches&body=" + encodeURIComponent(email);
-        hint.textContent = "Thanks! Send the email to lock in your spot.";
+        try { localStorage.setItem("sprig_waitlist", email); } catch (e) {}
+        hint.textContent = "Thanks! We'll let you know the moment Sprig launches.";
+        document.getElementById('email-input').value = '';
         return;
       }
       try {
@@ -198,7 +198,7 @@
         hint.textContent = "You're on the list. We'll be in touch at launch.";
         document.getElementById('email-input').value = '';
       } catch {
-        hint.textContent = "Almost! Email support@heysprig.com to be sure you're added.";
+        hint.textContent = "Hmm, that didn't go through. Please try again in a moment.";
       }
     }
   </script>
