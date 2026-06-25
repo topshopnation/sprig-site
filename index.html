@@ -138,9 +138,10 @@
       <h1>All your money,<br>in one clear view.</h1>
       <p class="subtitle">Every account and balance, always up to date. One simple place to see exactly where you stand.</p>
 
-      <form class="waitlist" onsubmit="handleSubmit(event)">
-        <input type="email" placeholder="you@email.com" required id="email-input" aria-label="Email address" />
-        <button type="submit">Get notified at launch</button>
+      <form id="waitlist-form" class="waitlist" action="https://formspree.io/f/xaqgedwd" method="POST">
+        <input type="email" name="email" placeholder="you@email.com" required id="email-input" aria-label="Email address" />
+        <input type="hidden" name="_subject" value="New Sprig waitlist signup" />
+        <button type="submit" id="waitlist-btn">Get notified at launch</button>
       </form>
       <p class="hint" id="hint-text">Be the first to know when Sprig launches. No spam, ever.</p>
     </section>
@@ -176,31 +177,38 @@
   </footer>
 
   <script>
-    // Waitlist: posts to the Sprig Worker once WORKER_URL is set after deploy.
-    // Until then, it falls back to an email so no signup is silently lost.
-    const WORKER_URL = ""; // e.g. "https://sprig-worker.<subdomain>.workers.dev"
-    async function handleSubmit(e) {
-      e.preventDefault();
-      const email = document.getElementById('email-input').value.trim();
-      const hint = document.getElementById('hint-text');
-      if (!WORKER_URL) {
-        try { localStorage.setItem("sprig_waitlist", email); } catch (e) {}
-        hint.textContent = "Thanks! We'll let you know the moment Sprig launches.";
-        document.getElementById('email-input').value = '';
-        return;
-      }
-      try {
-        await fetch(WORKER_URL + "/waitlist", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email })
+    // Waitlist: submits in the background to Formspree (form xaqgedwd,
+    // delivers to website@bluewaterexec.com). No email exposed on the page.
+    (function () {
+      var form = document.getElementById('waitlist-form');
+      if (!form) return;
+      var btn = document.getElementById('waitlist-btn');
+      var hint = document.getElementById('hint-text');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var orig = btn.textContent;
+        btn.textContent = 'Joining...';
+        btn.disabled = true;
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function (r) {
+          if (r.ok) {
+            form.style.display = 'none';
+            hint.textContent = "You're on the list. We'll let you know the moment Sprig launches.";
+          } else {
+            btn.textContent = orig;
+            btn.disabled = false;
+            hint.textContent = "Hmm, that didn't go through. Please try again.";
+          }
+        }).catch(function () {
+          btn.textContent = orig;
+          btn.disabled = false;
+          hint.textContent = "Hmm, that didn't go through. Please try again.";
         });
-        hint.textContent = "You're on the list. We'll be in touch at launch.";
-        document.getElementById('email-input').value = '';
-      } catch {
-        hint.textContent = "Hmm, that didn't go through. Please try again in a moment.";
-      }
-    }
+      });
+    })();
   </script>
 </body>
 </html>
