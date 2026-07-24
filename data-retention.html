@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Retention and Disposal Policy | Sprig Finance</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #1E7A50;
+      --green-dark: #155C3A;
+      --cream: #F7F2EB;
+      --text: #1A1A1A;
+      --muted: #6B6B6B;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    header {
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      background: var(--cream);
+    }
+    .logo-text {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--green-dark);
+      letter-spacing: -0.3px;
+      text-decoration: none;
+    }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 0.5rem;
+    }
+    .updated {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin: 2rem 0 0.6rem;
+    }
+    p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #333;
+      margin-bottom: 0.75rem;
+    }
+    ul {
+      padding-left: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+    li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #333;
+      margin-bottom: 0.25rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 14px;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      vertical-align: top;
+    }
+    th {
+      color: var(--green-dark);
+      font-weight: 600;
+      font-size: 13px;
+    }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo-text" href="/">Sprig Finance</a>
+  </header>
+
+  <main>
+    <h1>Data Retention and Disposal Policy</h1>
+    <p class="updated">Effective date: July 24, 2026 &nbsp;·&nbsp; Last updated: July 24, 2026</p>
+
+    <p>This policy describes how long Sprig Finance ("Sprig," "we," "us," or "our"), operated by CoreForge LLC, retains information in connection with the Sprig application, and how that information is disposed of. It supplements our <a href="/privacy">Privacy Policy</a>, which governs our overall handling of information.</p>
+
+    <h2>1. Design principle</h2>
+    <p>Sprig is built so that almost nothing needs to be retained or deleted on our end in the first place. Financial data (transactions, balances, and investment holdings) is retrieved from your financial institution through Plaid and delivered directly to your device. It is never written to a database or disk on any server we operate, so there is no financial data at rest on our systems to retain or dispose of.</p>
+
+    <h2>2. What we retain, and for how long</h2>
+    <table>
+      <tr>
+        <th>Data</th>
+        <th>Where it lives</th>
+        <th>Retention period</th>
+      </tr>
+      <tr>
+        <td>Bank connection credential (Plaid access token)</td>
+        <td>Encrypted at rest on our backend (AES-256-GCM), key held separately in a write-only secrets store</td>
+        <td>Until the connection is disconnected or the account is deleted</td>
+      </tr>
+      <tr>
+        <td>Connection metadata (institution name, internal connection ID, sync cursor)</td>
+        <td>Our backend</td>
+        <td>Until the connection is disconnected or the account is deleted</td>
+      </tr>
+      <tr>
+        <td>Anonymous device identifier</td>
+        <td>Our backend, used only for basic rate limiting</td>
+        <td>Until the app is deleted or the account is deleted</td>
+      </tr>
+      <tr>
+        <td>Transactions, balances, holdings, and any manual entries or customizations</td>
+        <td>Your device only</td>
+        <td>Until you delete the app or remove the data yourself</td>
+      </tr>
+    </table>
+    <p>We do not retain transaction history, account balances, or investment holdings on any server at any point. That data passes through our backend relay only for the length of a single request needed to deliver it to your device.</p>
+
+    <h2>3. Disposal triggers</h2>
+    <p>The information described above is deleted from our systems immediately when any of the following occurs:</p>
+    <ul>
+      <li>You disconnect a linked financial institution from within the app</li>
+      <li>You delete your account or data from within the app</li>
+      <li>A connection is no longer valid and is not reauthorized</li>
+    </ul>
+    <p>Disconnecting or deleting also instructs Plaid to release that connection on their end, which stops any further access to that account through Sprig.</p>
+
+    <h2>4. On-device data</h2>
+    <p>The data that makes up your actual financial picture in Sprig, including transaction history, balances, holdings, and any notes or edits you have made, exists only on your device. Deleting the app from your device removes all of it immediately and completely, since your device is the only place it was ever stored.</p>
+
+    <h2>5. Compromise response</h2>
+    <p>If we ever suspect that a connection credential has been compromised, our incident response process requires immediate invalidation of the affected Plaid access token and rotation of our Plaid client secret. This bounds how long any exposure could last, independent of when it is discovered.</p>
+
+    <h2>6. Review</h2>
+    <p>We review this policy whenever our data handling practices change, and at minimum once a year. Kevin Colon, as the individual responsible for Sprig's information security program, is responsible for this review.</p>
+
+    <h2>7. Contact</h2>
+    <p>Questions about this policy can be directed to us by mail:</p>
+    <p>
+      CoreForge LLC<br>
+      30 N Gould St #N<br>
+      Sheridan, WY 82801
+    </p>
+  </main>
+
+  <footer>© 2026 CoreForge LLC · <a href="/">heysprig.com</a></footer>
+</body>
+</html>
