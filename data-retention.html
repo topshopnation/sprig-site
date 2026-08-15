@@ -107,7 +107,7 @@
 
   <main>
     <h1>Data Retention and Disposal Policy</h1>
-    <p class="updated">Effective date: July 24, 2026 &nbsp;·&nbsp; Last updated: July 24, 2026</p>
+    <p class="updated">Effective date: July 24, 2026 &nbsp;·&nbsp; Last updated: August 14, 2026</p>
 
     <p>This policy describes how long Sprig Finance ("Sprig," "we," "us," or "our"), operated by CoreForge LLC, retains information in connection with the Sprig application, and how that information is disposed of. It supplements our <a href="/privacy">Privacy Policy</a>, which governs our overall handling of information.</p>
 
@@ -123,18 +123,28 @@
       </tr>
       <tr>
         <td>Bank connection credential (Plaid access token)</td>
-        <td>Encrypted at rest on our backend (AES-256-GCM), key held separately in a write-only secrets store</td>
-        <td>Until the connection is disconnected or the account is deleted</td>
+        <td>Your device only, in the iOS Keychain. It is handed to your device when you link the institution, and your device sends it with each request. We do not store it on our backend in any form, encrypted or otherwise</td>
+        <td>Until you disconnect the institution or delete the app</td>
       </tr>
       <tr>
-        <td>Connection metadata (institution name, internal connection ID, sync cursor)</td>
-        <td>Our backend</td>
-        <td>Until the connection is disconnected or the account is deleted</td>
+        <td>Connection identifier (the Plaid item ID for a linked institution)</td>
+        <td>Our backend, inside short-lived operational records: a note of when your bank last responded, and a log of when Plaid last contacted us about that connection</td>
+        <td>Expires automatically, at most 30 days, and is deleted when you disconnect the institution</td>
+      </tr>
+      <tr>
+        <td>Notification address, if you turn on notifications</td>
+        <td>Our backend. Used only to send your device a content-free signal to check for updates. It cannot be used to read or access anything</td>
+        <td>Until you disconnect the institution, turn off notifications, or delete the app</td>
+      </tr>
+      <tr>
+        <td>Institution-wide service status (whether a bank is having a known outage)</td>
+        <td>Our backend, cached briefly and shared across everyone using Sprig. It describes the bank, not you</td>
+        <td>30 minutes</td>
       </tr>
       <tr>
         <td>Anonymous device identifier</td>
-        <td>Our backend, used only for basic rate limiting</td>
-        <td>Until the app is deleted or the account is deleted</td>
+        <td>Your device, in the iOS Keychain. It is sent with each request so our host can apply basic rate limiting, and is not stored on our backend. It is not tied to your identity, your bank, or any data</td>
+        <td>Stays in your device's Keychain, which can outlive the app itself. Removed when you erase the device or reset its Keychain</td>
       </tr>
       <tr>
         <td>Transactions, balances, holdings, and any manual entries or customizations</td>
@@ -145,7 +155,7 @@
     <p>We do not retain transaction history, account balances, or investment holdings on any server at any point. That data passes through our backend relay only for the length of a single request needed to deliver it to your device.</p>
 
     <h2>3. Disposal triggers</h2>
-    <p>The information described above is deleted from our systems immediately when any of the following occurs:</p>
+    <p>Your notification address is deleted from our systems immediately when any of the following occurs. The short-lived operational records described above are not rewritten after a disconnect, and expire on their own within 30 days at the latest.</p>
     <ul>
       <li>You disconnect a linked financial institution from within the app</li>
       <li>You delete your account or data from within the app</li>
@@ -157,7 +167,7 @@
     <p>The data that makes up your actual financial picture in Sprig, including transaction history, balances, holdings, and any notes or edits you have made, exists only on your device. Deleting the app from your device removes all of it immediately and completely, since your device is the only place it was ever stored.</p>
 
     <h2>5. Compromise response</h2>
-    <p>If we ever suspect that a connection credential has been compromised, our incident response process requires immediate invalidation of the affected Plaid access token and rotation of our Plaid client secret. This bounds how long any exposure could last, independent of when it is discovered.</p>
+    <p>Because we do not hold your bank connection credential, a breach of our systems would not expose it. If we ever suspect that a connection credential has been compromised, our incident response process requires immediate invalidation of the affected Plaid access token and rotation of our Plaid client secret. This bounds how long any exposure could last, independent of when it is discovered.</p>
 
     <h2>6. Review</h2>
     <p>We review this policy whenever our data handling practices change, and at minimum once a year, as part of our information security program.</p>

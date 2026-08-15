@@ -90,12 +90,12 @@
 
   <main>
     <h1>Privacy Policy</h1>
-    <p class="updated">Effective date: June 24, 2026 &nbsp;·&nbsp; Last updated: July 20, 2026</p>
+    <p class="updated">Effective date: June 24, 2026 &nbsp;·&nbsp; Last updated: August 14, 2026</p>
 
-    <p>Sprig Finance ("Sprig," "we," "us," or "our") is a personal finance application operated by CoreForge LLC. This Privacy Policy explains what information exists when you use Sprig, and the deliberate design choice behind it: your financial data lives only on your own device, on purpose, and is never stored on any server we operate. It applies to the Sprig Finance iOS app and our website at heysprig.com.</p>
+    <p>Sprig Finance ("Sprig," "we," "us," or "our") is a personal finance application operated by CoreForge LLC. This Privacy Policy explains what information exists when you use Sprig, and the deliberate design choice behind it: your financial data lives on your own device, on purpose, and is never stored on any server we operate. It applies to the Sprig Finance iOS app and our website at heysprig.com.</p>
 
     <h2>1. Our core privacy principle: your data stays on your device</h2>
-    <p>Sprig does not use accounts, sign-in, or a central database. There is nothing tying your identity to your financial data anywhere but your own device. Your transaction history, account balances, and investment holdings are retrieved from your financial institution through Plaid, delivered to your device, and never written to any server or database we operate, not encrypted, not temporarily, not in any form. The connection credential that lets your device retrieve your data is stored only on your device, in Apple's Keychain, the same secure storage iOS uses for passwords.</p>
+    <p>Sprig does not use accounts, sign-in, or a central database. There is nothing tying your identity to your financial data anywhere but your own device. Your transaction history, account balances, and investment holdings are retrieved from your financial institution through Plaid, delivered to your device, and never written to any server or database we operate, not encrypted, not temporarily, not in any form. The connection credential that lets your device retrieve your data is stored only on your device, in Apple's Keychain, the same secure storage iOS uses for passwords. It is not stored on our backend in any form.</p>
 
     <h2>2. Information We Collect</h2>
     <p>Sprig collects no personal profile of any kind: no name, no email address, no sign-in. What exists is limited to:</p>
@@ -120,7 +120,7 @@
     <p>We use Plaid to gather data from your financial accounts. By connecting a bank account in Sprig, you also agree to Plaid's End User Privacy Policy, available at <a href="https://plaid.com/legal/end-user-privacy-policy" target="_blank" rel="noopener">plaid.com/legal/end-user-privacy-policy</a>. Plaid's collection and use of your data is governed by Plaid's privacy policies at <a href="https://plaid.com/legal" target="_blank" rel="noopener">plaid.com/legal</a>.</p>
 
     <h2>5. Data Storage and Security</h2>
-    <p>We do not operate a database of user financial data. The only server-side component is a lightweight relay that, at your device's request, retrieves your data from Plaid and passes it straight back to you. It does not write your financial data to disk or memory beyond the single request that delivers it to you. The only information our relay retains at all is limited, non-financial technical data needed to operate the service (for example, a temporary flag used to avoid unnecessary repeat requests to Plaid, and, if you enable notifications in a future version, an address used only to send a content-free "check for updates" signal to your device, which cannot be used to read or access anything).</p>
+    <p>We do not operate a database of user financial data. The only server-side component is a lightweight relay that, at your device's request, retrieves your data from Plaid and passes it straight back to you. It does not write your financial data to disk or memory beyond the single request that delivers it to you. The only information our relay retains at all is limited, non-financial technical data needed to operate the service. That is: short-lived records of when your bank last responded and when Plaid last contacted us, which expire on their own within 30 days; a briefly cached note of whether a bank is having a known outage, which describes the bank and not you; and, if you turn on notifications, an address used only to send a content-free "check for updates" signal to your device, which cannot be used to read or access anything. Your bank connection credential is not among them. It stays on your device.</p>
     <p>We maintain a written information security program in accordance with the FTC Safeguards Rule, with a Qualified Individual internally designated to oversee it. For any security concern, contact us at the mailing address below.</p>
 
     <h2>6. Data Retention and Deletion</h2>
@@ -131,7 +131,7 @@
     <ul>
       <li><strong>Plaid Technologies, Inc.</strong>: secure connection to your financial institutions</li>
       <li><strong>Cloudflare, Inc.</strong>: hosts the lightweight relay described in Section 5, which retrieves your data from Plaid on request and does not store it</li>
-      <li><strong>Apple Inc.</strong>: subscription billing (if applicable) and, in a future version, delivery of a content-free notification signal, as described in Section 5</li>
+      <li><strong>Apple Inc.</strong>: subscription billing (if applicable) and delivery of a content-free notification signal, as described in Section 5</li>
     </ul>
     <p>Each provider is bound by its own privacy policy and data processing terms. We do not sell your data to any of them.</p>
 
