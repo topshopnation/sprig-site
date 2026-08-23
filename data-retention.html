@@ -107,12 +107,12 @@
 
   <main>
     <h1>Data Retention and Disposal Policy</h1>
-    <p class="updated">Effective date: July 24, 2026 &nbsp;·&nbsp; Last updated: August 14, 2026</p>
+    <p class="updated">Effective date: July 24, 2026 &nbsp;·&nbsp; Last updated: August 23, 2026</p>
 
     <p>This policy describes how long Sprig Finance ("Sprig," "we," "us," or "our"), operated by CoreForge LLC, retains information in connection with the Sprig application, and how that information is disposed of. It supplements our <a href="/privacy">Privacy Policy</a>, which governs our overall handling of information.</p>
 
     <h2>1. Design principle</h2>
-    <p>Sprig is built so that almost nothing needs to be retained or deleted on our end in the first place. Financial data (transactions, balances, and investment holdings) is retrieved from your financial institution through Plaid and delivered directly to your device. It is never written to a database or disk on any server we operate, so there is no financial data at rest on our systems to retain or dispose of.</p>
+    <p>Sprig is built so that almost nothing needs to be retained or deleted on our end in the first place. Financial data (transactions, balances, and investment holdings) is retrieved from your financial institution through Plaid and delivered directly to your device. It is never written to a database or disk on any server we operate, so there is no financial data at rest on our systems to retain or dispose of. Copies of your data are kept on your own device and in your own iCloud account. Those copies are yours, they sit under your own Apple Account rather than ours, and only you can remove them. Section 4 explains how.</p>
 
     <h2>2. What we retain, and for how long</h2>
     <table>
@@ -148,8 +148,8 @@
       </tr>
       <tr>
         <td>Transactions, balances, holdings, and any manual entries or customizations</td>
-        <td>Your device only</td>
-        <td>Until you delete the app or remove the data yourself</td>
+        <td>Your device and your own iCloud account. Never on any server we operate</td>
+        <td>Until you remove it yourself, see Section 4</td>
       </tr>
     </table>
     <p>We do not retain transaction history, account balances, or investment holdings on any server at any point. That data passes through our backend relay only for the length of a single request needed to deliver it to your device.</p>
@@ -163,8 +163,9 @@
     </ul>
     <p>Disconnecting or deleting also instructs Plaid to release that connection on their end, which stops any further access to that account through Sprig.</p>
 
-    <h2>4. On-device data</h2>
-    <p>The data that makes up your actual financial picture in Sprig, including transaction history, balances, holdings, and any notes or edits you have made, exists only on your device. Deleting the app from your device removes all of it immediately and completely, since your device is the only place it was ever stored.</p>
+    <h2>4. Your own copies, and how to remove them</h2>
+    <p>The data that makes up your actual financial picture in Sprig, including transaction history, balances, holdings, and any notes or edits you have made, is kept on your device and in your own iCloud account. Both belong to you, and neither is on a server we operate.</p>
+    <p><strong>Deleting the app does not delete everything.</strong> It removes the copy on your device. It does not remove the copy in your own iCloud account. To remove all of your Sprig data, delete the app from your device, then open Settings, tap your name, tap iCloud, then Manage Account Storage, find Sprig in the list, and delete its data there.</p>
 
     <h2>5. Compromise response</h2>
     <p>Because we do not hold your bank connection credential, a breach of our systems would not expose it. If we ever suspect that a connection credential has been compromised, our incident response process requires immediate invalidation of the affected Plaid access token and rotation of our Plaid client secret. This bounds how long any exposure could last, independent of when it is discovered.</p>
@@ -173,7 +174,7 @@
     <p>We review this policy whenever our data handling practices change, and at minimum once a year, as part of our information security program.</p>
 
     <h2>7. Contact</h2>
-    <p>Questions about this policy can be directed to us by mail:</p>
+    <p>Questions about this policy can be directed to us through our <a href="/contact">Contact page</a>, or by mail:</p>
     <p>
       CoreForge LLC<br>
       30 N Gould St #N<br>
@@ -181,6 +182,6 @@
     </p>
   </main>
 
-  <footer>© 2026 CoreForge LLC · <a href="/">heysprig.com</a></footer>
+  <footer>© 2026 CoreForge LLC · <a href="/">heysprig.com</a> · <a href="/contact">Contact</a></footer>
 </body>
 </html>
