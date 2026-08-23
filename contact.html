@@ -126,7 +126,7 @@
     <form id="contact-form">
       <div>
         <label for="subject">Subject</label>
-        <select id="subject" name="subject" required>
+        <select id="subject" name="topic" required>
           <option value="" disabled selected>Choose one</option>
           <option value="Help">Help</option>
           <option value="Suggestion">Suggestion</option>
@@ -149,7 +149,6 @@
       </div>
 
       <input type="hidden" name="access_key" value="1fc601fa-5c96-4ec0-a668-8f9daaada58f">
-      <input type="hidden" name="subject" value="New message from heysprig.com">
       <input type="hidden" name="from_name" value="Sprig Finance Contact Form">
 
       <button type="submit" id="submit-btn">Send message</button>
@@ -181,10 +180,13 @@
         status.textContent = '';
         status.className = 'status';
 
+        var payload = Object.fromEntries(new FormData(form));
+        payload.subject = 'Sprig contact form: ' + payload.topic;
+
         fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(Object.fromEntries(new FormData(form)))
+          body: JSON.stringify(payload)
         })
           .then(function (r) { return r.json(); })
           .then(function (data) {
