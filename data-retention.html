@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- DRAFT 2026-10-04 for review by Kevin's lawyer. Not published. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -107,9 +108,9 @@
 
   <main>
     <h1>Data Retention and Disposal Policy</h1>
-    <p class="updated">Effective date: July 24, 2026 &nbsp;·&nbsp; Last updated: August 23, 2026</p>
+    <p class="updated">Effective date: July 24, 2026  ·  Last updated: October 4, 2026</p>
 
-    <p>This policy describes how long Sprig Finance ("Sprig," "we," "us," or "our"), operated by CoreForge LLC, retains information in connection with the Sprig application, and how that information is disposed of. It supplements our <a href="/privacy">Privacy Policy</a>, which governs our overall handling of information.</p>
+    <p>This policy describes how long Sprig Finance ("Sprig," "we," "us," or "our"), operated by CoreForge, retains information in connection with the Sprig application, and how that information is disposed of. It supplements our <a href="/privacy">Privacy Policy</a>, which governs our overall handling of information.</p>
 
     <h2>1. Design principle</h2>
     <p>Sprig is built so that almost nothing needs to be retained or deleted on our end in the first place. Financial data (transactions, balances, and investment holdings) is retrieved from your financial institution through Plaid and delivered directly to your device. It is never written to a database or disk on any server we operate, so there is no financial data at rest on our systems to retain or dispose of. Copies of your data are kept on your own device and in your own iCloud account. Those copies are yours, they sit under your own Apple Account rather than ours, and only you can remove them. Section 4 explains how.</p>
@@ -134,7 +135,7 @@
       <tr>
         <td>Notification address, if you turn on notifications</td>
         <td>Our backend. Used only to send your device a content-free signal to check for updates. It cannot be used to read or access anything</td>
-        <td>Until you disconnect the institution, turn off notifications, or delete the app</td>
+        <td>Until you disconnect the institution or turn off notifications, and in any case it expires after 90 days unless your device refreshes it</td>
       </tr>
       <tr>
         <td>Institution-wide service status (whether a bank is having a known outage)</td>
@@ -145,6 +146,12 @@
         <td>Anonymous device identifier</td>
         <td>Your device, in the iOS Keychain. It is sent with each request so our host can apply basic rate limiting, and is not stored on our backend. It is not tied to your identity, your bank, or any data</td>
         <td>Stays in your device's Keychain, which can outlive the app itself. Removed when you erase the device or reset its Keychain</td>
+      </tr>
+      <tr>
+        <td>Subscription identifier and Plaid user ID (subscribers)</td>
+        <td>Our backend. A one-way hash of your Apple subscription number, whether the subscription is active, and an opaque Plaid user ID used to group and release your bank connections</td>
+        <!-- UNSURE: retention period after a subscription ends is not confirmed in the worker code; confirm before publishing. -->
+        <td>While your subscription is active and until your bank connections have been released with Plaid after it ends</td>
       </tr>
       <tr>
         <td>Transactions, balances, holdings, and any manual entries or customizations</td>
@@ -174,14 +181,14 @@
     <p>We review this policy whenever our data handling practices change, and at minimum once a year, as part of our information security program.</p>
 
     <h2>7. Contact</h2>
-    <p>Questions about this policy can be directed to us through our <a href="/contact">Contact page</a>, or by mail:</p>
+    <p>Questions about this policy can be directed to us at <a href="mailto:support@heysprig.com">support@heysprig.com</a>, through our <a href="/contact">Contact page</a>, or by mail:</p>
     <p>
-      CoreForge LLC<br>
+      CoreForge<br>
       30 N Gould St #N<br>
       Sheridan, WY 82801
     </p>
   </main>
 
-  <footer>© 2026 CoreForge LLC · <a href="/">heysprig.com</a> · <a href="/contact">Contact</a></footer>
+  <footer>© 2026 CoreForge · <a href="/">heysprig.com</a> · <a href="/contact">Contact</a></footer>
 </body>
 </html>

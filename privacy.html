@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- DRAFT 2026-10-04 for review by Kevin's lawyer. Not published. Unsure statements are marked UNSURE in comments. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -90,9 +91,9 @@
 
   <main>
     <h1>Privacy Policy</h1>
-    <p class="updated">Effective date: June 24, 2026 &nbsp;·&nbsp; Last updated: September 29, 2026</p>
+    <p class="updated">Effective date: June 24, 2026  ·  Last updated: October 4, 2026</p>
 
-    <p>Sprig Finance ("Sprig," "we," "us," or "our") is a personal finance application operated by CoreForge LLC. This Privacy Policy explains what information exists when you use Sprig, and the deliberate design choice behind it: your financial data lives on your own device and in your own iCloud account, on purpose, and is never stored on any server we operate. A small amount of technical information, listed in Section 2, does sit on our server. It applies to the Sprig Finance iOS app and our website at heysprig.com.</p>
+    <p>Sprig Finance ("Sprig," "we," "us," or "our") is a personal finance application operated by CoreForge. This Privacy Policy explains what information exists when you use Sprig, and the deliberate design choice behind it: your financial data lives on your own device and in your own iCloud account, on purpose, and is never stored on any server we operate. A small amount of technical information, listed in Section 2, does sit on our server. It applies to the Sprig Finance iOS app and our website at heysprig.com.</p>
 
     <h2>1. Our core privacy principle: your data stays with you</h2>
     <p>Sprig has no user profile and no central database of your finances. Your transaction history, account balances, and investment holdings are retrieved from your financial institution through Plaid, delivered to your device, and never written to any server or database we operate, not encrypted, not temporarily, not in any form.</p>
@@ -104,8 +105,9 @@
     <p>We do not receive either one. Sprig runs no server that holds your financial data, so there is no copy of it on our side to lose. The connection credential that lets your device retrieve your data is kept in Apple's Keychain, the same secure storage iOS uses for passwords. It syncs between your own devices through iCloud Keychain, which Apple encrypts end to end, so a second iPhone or iPad signed in to your Apple Account can use the same bank connection. It is not stored on our servers in any form. If you turn off iCloud Keychain, the credential stays on the device where you linked the bank.</p>
 
     <h2>2. Information We Collect</h2>
-    <p>Sprig collects no name, no email address, and no password. What exists is limited to:</p>
+    <p>The Sprig app collects no name, no email address, and no password, and has no sign-in. What exists is limited to:</p>
     <ul>
+      <li><strong>Contact form on heysprig.com:</strong> if you write to us through the website, we receive the email address and message you type. They are delivered to our support inbox through the form provider Web3Forms and used only to answer you. The website does not use advertising or analytics cookies.<!-- UNSURE: confirm Web3Forms retains no copy beyond delivery; check their policy. --></li>
       <li><strong>Bank connection credential:</strong> when you link a bank, Plaid gives your device a credential that lets it retrieve your data. It is kept in your Keychain and syncs through your iCloud Keychain, as described in Section 1. It is never written to any server we operate. Our server only handles it for the length of a single request.</li>
       <li><strong>Notification token per bank connection:</strong> if you allow notifications, our server keeps the notification address Apple gives your device, filed under the bank connection it belongs to. It is used only to send a content-free "check for updates" signal, and it cannot be used to read anything. It is deleted when you disconnect the bank.</li>
       <li><strong>Random device identifier:</strong> a random value made on your device and stored in its Keychain. It is sent with requests so we can apply basic rate limits. It is not tied to your name, your bank, or any of your data. Our server does not save it.</li>
@@ -113,7 +115,9 @@
       <li><strong>Plaid user ID:</strong> Plaid assigns your subscription an opaque user ID. Our server keeps it so your bank connections can be grouped and released by Plaid if your subscription ends. It does not contain your name or any personal detail.</li>
       <li><strong>Transaction, balance, and holdings data:</strong> retrieved from your institution through Plaid and delivered to your device. This data passes through our relay for the length of a single request and is not saved there.</li>
       <li><strong>Data you enter on your device:</strong> manual transactions, memos, renamed merchants, categories, and other customizations are stored on your device and copied to your own iCloud account, as described in Section 1. None of it is stored on any server we operate.</li>
-      <li><strong>Data you choose to move yourself:</strong> if you export your customizations (for example, via AirDrop), that is your own action on your own device. Sprig does not receive or store that transfer.</li>
+      <li><strong>Device name in your iCloud:</strong> the name of your device is saved in your own iCloud storage so the app can show which of your devices made a change. We cannot read your iCloud storage.</li>
+      <li><strong>Face ID or passcode lock:</strong> if you turn on the app lock, the check is done by iOS on your device. Sprig does not receive your biometric data.</li>
+      <li><strong>Data you choose to move yourself:</strong> if you export a backup or your data (for example, via AirDrop or a file), the export file is created on your device and you decide where it goes. Backup files are encrypted by the app, that is your own action on your own device. Sprig does not receive or store that transfer.</li>
     </ul>
 
     <h2>3. How We Use Your Information</h2>
@@ -122,9 +126,10 @@
       <li>Apply basic abuse/rate limiting so our systems aren't overwhelmed by any single device</li>
       <li>Send a content-free "check for updates" notification when a bank has new activity or needs your attention</li>
       <li>Confirm whether your subscription is active, and release your bank connections with Plaid if it ends</li>
-      <li>Manage your subscription (if applicable), through Apple's own billing system</li>
+      <li>Manage your subscription through Apple's own billing system</li>
     </ul>
     <p>We do not sell, rent, or share your personal or financial data with any third party for advertising or marketing purposes. We could not sell what we do not have.</p>
+    <p>Sprig contains no advertising, no analytics, and no crash-reporting tools, and it does not track you across other companies' apps or websites. The privacy details we give Apple for the App Store listing match this policy: the only data types declared are Other Financial Info and Device ID, both used only for app functionality and never for tracking. They correspond to the bank-connection and notification records described in Section 2. Plaid's own software inside the app also declares a Plaid user identifier, as described in Section 4.</p>
 
     <h2>4. Plaid and Financial Data</h2>
     <p>Sprig uses <a href="https://plaid.com" target="_blank" rel="noopener">Plaid Technologies, Inc.</a> to connect to your financial institutions. When you link an account, your bank credentials are entered directly with your bank through Plaid's secure interface. Sprig never sees or stores your banking username or password.</p>
@@ -143,7 +148,7 @@
     <ul>
       <li><strong>Plaid Technologies, Inc.</strong>: secure connection to your financial institutions</li>
       <li><strong>Cloudflare, Inc.</strong>: hosts the lightweight relay described in Section 5, which retrieves your data from Plaid on request and does not store it</li>
-      <li><strong>Apple Inc.</strong>: subscription billing (if applicable), iCloud Keychain syncing of your bank connection credential between your devices, delivery of a content-free notification signal as described in Section 5, and storage of the copy held in your own iCloud account as described in Section 1</li>
+      <li><strong>Apple Inc.</strong>: subscription billing, iCloud Keychain syncing of your bank connection credential between your devices, delivery of a content-free notification signal as described in Section 5, and storage of the copy held in your own iCloud account as described in Section 1</li>
     </ul>
     <p>Each provider is bound by its own privacy policy and data processing terms. We do not sell your data to any of them.</p>
 
@@ -153,15 +158,16 @@
     <h2>9. Changes to This Policy</h2>
     <p>We may update this Privacy Policy from time to time. We will notify you of material changes with an in-app notice. Since Sprig does not collect an email address, we are not able to notify you by email. Your continued use of Sprig after changes are posted constitutes acceptance of the updated policy.</p>
 
+    <!-- UNSURE: full legal entity name. Pages say CoreForge only, per Kevin. A policy usually names the full legal entity; ask the lawyer. -->
     <h2>10. Contact Us</h2>
-    <p>If you have questions about this Privacy Policy or your personal data, reach us through our <a href="/contact">Contact page</a>, or by mail:</p>
+    <p>If you have questions about this Privacy Policy or your personal data, reach us at <a href="mailto:support@heysprig.com">support@heysprig.com</a>, through our <a href="/contact">Contact page</a>, or by mail:</p>
     <p>
-      CoreForge LLC<br>
+      CoreForge<br>
       30 N Gould St #N<br>
       Sheridan, WY 82801
     </p>
   </main>
 
-  <footer>© 2026 CoreForge LLC · <a href="/">heysprig.com</a> · <a href="/contact">Contact</a></footer>
+  <footer>© 2026 CoreForge · <a href="/">heysprig.com</a> · <a href="/contact">Contact</a></footer>
 </body>
 </html>
